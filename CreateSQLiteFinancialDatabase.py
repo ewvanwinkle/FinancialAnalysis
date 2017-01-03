@@ -17,8 +17,8 @@ with open('tickerSymbols.csv') as csvfile:
         # for some reason, some of the ticker symbols just wouldnt recognize
         try:
             # gathers data from the internet in a pandas DataFrame.
-            # then writes this dataframe to an sqlite table
             temp = data.DataReader(row[0], 'yahoo', datetime(2014,1,6), datetime(2014,1,11))
+            # then writes this dataframe to an sqlite table
             temp.to_sql(row[0], cnx, if_exists = 'replace', flavor = 'sqlite')
 
         except:
